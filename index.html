@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YING TANG HONG INVESTMENT </title>
+  <title>YING TANG HONG INVESTMENT · 英登行投资</title>
   <meta name="description" content="Ying Tang Hong Investment (英登行投资) — a Hong Kong based private investment vehicle connecting markets and creating long-term value. Founded in 1990.">
 
   <!-- Favicon: YTH monogram -->
@@ -58,6 +58,7 @@
     .hero-bg{
       position:absolute;inset:0;z-index:-2;
       background-image:url('assets/yingtanghong-hero.jpg');
+      background-repeat:no-repeat;
       background-size:cover;background-position:center;
     }
     .hero-bg::after{
@@ -102,26 +103,60 @@
       font-size:13px;color:var(--muted);
     }
     footer .en{color:var(--gold);font-family:Georgia,serif;letter-spacing:1px}
+
+    /* ---------- RESPONSIVE: laptops & monitors ---------- */
+    /* Large external monitors (>=1920px wide): frame the skyline, let type breathe */
+    @media (min-width:1920px){
+      .hero-bg{background-position:50% 38%}
+      .hero-inner{max-width:760px}
+      .hero h1{font-size:clamp(40px,5vw,76px)}
+      .hero h1 .cn{font-size:clamp(24px,3vw,42px)}
+      .tagline{font-size:clamp(16px,1.4vw,20px)}
+    }
+    /* Wide / ultrawide monitors: avoid over-zoom cropping the skyline */
+    @media (min-aspect-ratio:2/1){
+      .hero-bg{background-size:auto 100%;background-position:center}
+    }
+    /* Common laptop heights (~720-820px): tighten vertical rhythm so content never clips */
+    @media (max-height:820px){
+      .hero{padding-top:72px;padding-bottom:48px}
+      .eyebrow{margin-bottom:16px}
+      .tagline{margin-top:16px}
+      .founded{margin-top:20px}
+      .cta-row{margin-top:24px}
+    }
+    /* Compact laptops / smaller widths */
+    @media (max-width:1280px){
+      .hero-inner{max-width:600px}
+    }
   </style>
 </head>
 <body>
 
   <nav id="nav">
     <div class="brand">
-    
+      <span class="en">YTH</span>
+      <span class="cn">英登行投资</span>
     </div>
   </nav>
 
   <header class="hero">
     <div class="hero-bg"></div>
     <div class="hero-inner">
-      
-    
-   
+      <span class="eyebrow">Private Investment · Hong Kong</span>
+      <h1>
+        YING TANG HONG<br>INVESTMENT
+        <span class="cn">英 登 行 投 资</span>
+      </h1>
+      <p class="tagline">Connecting markets. Creating Value. Investing for the Future.</p>
+      <div class="founded">Established <b>1990</b></div>
     </div>
   </header>
 
- 
+  <footer>
+    <span class="en">YING TANG HONG INVESTMENT</span>
+    <span>© 1990–2026 YTH · Hong Kong</span>
+  </footer>
 
   <script>
     const nav = document.getElementById('nav');
